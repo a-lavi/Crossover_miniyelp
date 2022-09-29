@@ -14,24 +14,24 @@ app.use(cors())
 const restaurants = [
     {
         id: 1,
-        restaurant: "Restaurant test1",
-        tags: "tags test1",
+        name: "Restaurant test1",
+        imgUrl: "imgUrl test1",
         city: "city test1",
-        comments: "comment test1"
+        rating: "rating test1"
     },
     {
         id: 2,
-        restaurant: "Restaurant test2",
-        tags: "tags test2",
+        name: "Restaurant test2",
+        imgUrl: "imgUrl test2",
         city: "city test2",
-        comments: "comment test2"
+        rating: "rating test2"
     },
     {
         id: 3,
-        restaurant: "Restaurant test3",
-        tags: "tags test3",
+        name: "Restaurant test3",
+        imgUrl: "imgUrl test3",
         city: "city test3",
-        comments: "comment test3"
+        rating: "rating test3"
     },
 ]
 
