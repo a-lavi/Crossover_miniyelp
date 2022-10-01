@@ -11,6 +11,13 @@ app.use('/', express.static(path.join(__dirname, 'static')))
 app.use(express.json())
 app.set('view engine', 'ejs')
 app.use(cors())
+
+const {
+    getRestaurants,
+    getOneRestaurant,
+    postRestaurants,
+    getComments
+} =require('./controllers/mongoDB-ctrl')
 const restaurants = [
     {
         id: 1,
@@ -40,7 +47,32 @@ const port = process.env.PORT || 5050
 
 
 app.get('/api/restaurants', (req, res) => {
-    res.json({data:restaurants})
+    
+    getRestaurants()
+    .then((data) => {res.json(data)})
+    .catch(err => sendErrorOutput(err, res))
+})
+
+app.get('/api/restaurants/:id', (req, res) => {
+    const {id} = req.params
+    getOneRestaurant(id)
+    .then((data) => {res.json(data)})
+    .catch(err => sendErrorOutput(err, res))
+})
+
+app.get('/api/comments', (req, res) => {
+    
+    getComments()
+    .then((data) => {res.json(data)})
+    .catch(err => sendErrorOutput(err, res))
+})
+
+
+app.post('/api/restaurants', (req, res) => {
+   
+    postRestaurants(req.body)
+    .then((data) => {res.json(data)})
+    .catch(err => sendErrorOutput(err, res))
 })
 
 

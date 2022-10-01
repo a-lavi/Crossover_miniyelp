@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const restaurantSchema = new Schema({
-    restaurant: String,
-    tags: String,
+    name: String,
+    imgUrl: String,
     city: String,
-    comment: String,
-    
+    rating: Number,
+    tags: String
 })
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);
